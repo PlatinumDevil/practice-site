@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import './styles/App.css';
 import Navbar from './components/Navbar/index.js'
 import HomePage from './components/HomePage/index.js';
 import Journal from './components/Journal/index.js';
@@ -15,7 +15,8 @@ function App() {
         <Routes>
 
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/entries" element={<Journal />} />
+          <Route exact path="/entries" element={<Journal />} />
+          {/* <Route exact path="/entries/:id" element={<Journal />} /> */}
           <Route path="/add-entry" element={<EntryForm />} />
           <Route path="/edit" element={<EditForm />} />
 

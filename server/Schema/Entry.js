@@ -10,8 +10,8 @@ const entrySchema = new mongoose.Schema({
         required: true,
     },
     date: {
-        type: Date,
-        default: Date.now,
+        type: Number,
+        required: true
     },
 });
 
