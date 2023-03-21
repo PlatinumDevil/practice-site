@@ -3,40 +3,30 @@
   text-align: left;
 }
 
-.journal ul {
+/* .journal ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  
-
-}
-
-.journal li {
-  text-align: center;
-  display: block;
-  margin:10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
+} */
 
 .journal h1 {
   text-align: center;
   justify-content: center;
 }
 
-/* .journal button {
-  margin: 10;
-  padding: 30;
+.container {
   display: flex;
-  justify-content: center;
-} */
+  flex-wrap: wrap;
+}
 
-button {
-  padding: 20;
-  margin: 10px;
-  display:flexbox;
-  
+.result-item {
+  width: calc(100% / 4);
+  margin:10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
 }

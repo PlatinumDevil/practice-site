@@ -8,6 +8,7 @@ import axios from 'axios'
 function EntryForm() {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState(getCurrentDate());
+    const [unix, setUnix] = useState(getCurrentUnixTimestamp())
     const [content, setContent] = useState('');
     const navigate = useNavigate();
 
@@ -36,6 +37,12 @@ function EntryForm() {
         localStorage.setItem("content", newContent);
     };
 
+    const handleDateChange = (value) => {
+        const newUnix = value;
+        setUnix(newUnix);
+        localStorage.setItem("unix", newUnix);
+    };
+
     async function handleSubmit(event) {
         event.preventDefault();
 
@@ -45,7 +52,7 @@ function EntryForm() {
         const newEntry = {
             title,
             content,
-            date: Date.now()
+            date: unix,
         };
         try {
             await axios.post('http://57.128.146.14:5001/api/add-entry', newEntry);
@@ -77,6 +84,13 @@ function EntryForm() {
         return `${year}-${month}-${day}`;
     }
 
+    function getCurrentUnixTimestamp() {
+        const dateString = getCurrentDate();
+        const dateObject = new Date(dateString);
+        const unixTimestamp = dateObject.getTime(); // divide by 1000 to get the timestamp in seconds instead of milliseconds
+        return unixTimestamp;
+    }
+
     return (
         <form>
             <br />
@@ -93,7 +107,7 @@ function EntryForm() {
                 Date:
                 <br />
                 <br />
-                <input type="date" value={date} onChange={(event) => setDate(event.target.value)} />
+                    <input type="date" value={date} onChange={handleDateChange} />
             </label>
             <br />
             <br />

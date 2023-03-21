@@ -37,6 +37,7 @@ function Entry() {
                 {moment.utc(entry.date).format("dddd Do MMMM YYYY")}
             </center>
             <div dangerouslySetInnerHTML={createMarkup(entry.content)} />
+            <strong>End of Session</strong>
             {/* {entries.data.title} */}
             {/* {entries.map(entry => (
                 <div key={entry._id}>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/App.css';
 import Navbar from './components/Navbar/index.js'
 import HomePage from './components/HomePage/index.js';
-import Journal from './components/Journal/index.js';
+import Journal from './components/Sessions/index.js';
 import Entry from './components/Entry/index.js'
 import EntryForm from './components/EntryForm/index.js';
 import EditForm from './components/EditForm/index.js';
@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/entries" element={<Journal />} />
           <Route path="/entry/:id" element={<Entry />} />
           <Route path="/add-entry" element={<EntryForm />} />
-          <Route path="/edit" element={<EditForm />} />
+          {/* <Route path="/edit/:id" element={<EditForm />} /> */}
           <Route path="/logout" element={<Logout />} />
 
         </Routes>
