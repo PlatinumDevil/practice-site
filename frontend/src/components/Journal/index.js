@@ -5,6 +5,11 @@ import EditForm from '../EditForm/index.js';
 import axios from 'axios';
 import moment from 'moment';
 
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+
+import '../../styles/Journal.css'
+
 function Journal() {
     const [entries, setEntries] = useState([]);
 
@@ -31,23 +36,36 @@ function Journal() {
     }
 
     return (
-        <div>
-            <h1>Journal</h1>
+        <div className='journal'>
+            <h1 style={{ textAlign: 'center' }}>Journal</h1>
             <br />
-            <Link to="/add-entry">Add New Entry</Link>
+            <center>
+                <Button component={Link} to={`/add-entry`} variant="contained" color="primary">
+                    Add New Entry
+                </Button>
+            </center>
             <br />
-            <ul style={{ display: "block" }}>
+            <ul>
                 {entries.map((entry, index) => (
-                    <li key={index} style={{ display: "block" }}>
-                        <h2>{entry.title}</h2>
-                        {/* <p>{moment.utc(entry.date).format("dddd Do MMMM YYYY")}</p> */}
-                        {/* <p>{entry.content}</p> */}
-                        <div dangerouslySetInnerHTML={createMarkup(entry.content)} />
+                    <li key={index}>
+                        <p>
 
-                        <button>
-                            <Link to={`/edit/${index}`}>Edit</Link>
-                        </button>
-                        <button onClick={() => handleDelete(index)}>Delete</button>
+                        <h2>{entry.title}</h2>
+                            {moment.utc(entry.date).format("dddd Do MMMM YYYY")}
+                            <br />
+                            <br />
+                            {/* <p>{entry.content}</p> */}
+                            {/* <div dangerouslySetInnerHTML={createMarkup(entry.content)} /> */}
+                            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                                <Button component={Link} to={`/entry/${entry._id}`} variant="contained" color="primary">
+                                    View
+                                </Button>
+                                <Button component={Link} to={`/edit/${index}`} variant="contained" color="primary">
+                                    Edit
+                                </Button>
+                            </ButtonGroup>
+                        </p>
+                        {/* <button onClick={() => handleDelete(index)}>Delete</button> */}
                         <br />
                     </li>
 

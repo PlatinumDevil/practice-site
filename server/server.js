@@ -35,6 +35,20 @@ app.get('/api/entries', async (req, res) => {
     }
 })
 
+app.get(`/api/entry/:id`, async (req, res) => {
+    console.log(req)
+    try {
+        let entry = await Entry.findById(req.params.id)
+        if (!entry) {
+            return res.status(404).json({ message: 'Entry not found' });
+        }
+        res.status(201).json(entry)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+})
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);

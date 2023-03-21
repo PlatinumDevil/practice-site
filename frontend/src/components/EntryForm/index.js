@@ -5,8 +5,6 @@ import "react-quill/dist/quill.snow.css";
 
 import axios from 'axios'
 
-// import "../../styles/Styles.css"
-
 function EntryForm() {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState(getCurrentDate());
@@ -103,8 +101,8 @@ function EntryForm() {
                 Content:
                 <br />
                     <br />
-            </label>
-                <ReactQuill style={{ height: '200px', width: '650px' }} value={content} placeholder='Session records here' onChange={handleContentChange} />
+                    <ReactQuill style={{ height: '500px', width: '650px' }} value={content} placeholder='Session records here' onChange={handleContentChange} />
+                </label>
                 <br /><br /><br /><br />
             <button type="submit" onClick={handleSubmit}>
                 Save

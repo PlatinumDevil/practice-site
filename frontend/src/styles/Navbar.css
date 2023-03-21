@@ -6,7 +6,7 @@ nav {
   background-color: #f2f2f2;
 }
 
-ul {
+.navbar-wrapper ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,11 +14,11 @@ ul {
   justify-content: center;
 }
 
-li {
+.navbar-wrapper li {
   margin-right: 1rem;
 }
 
-a {
+.navbar-wrapper a {
   display: block;
   padding: 0.5rem;
   color: #333;
